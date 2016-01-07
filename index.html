@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <!--<script>-->
+        <!--$.ajax({-->
+            <!--url:'a.php',-->
+            <!--success:function(argument){-->
+                <!-- -->
+            <!--}-->
+        <!--});-->
+    <!--</script>-->
+    <script>
+
+        //房子
+        function Fangzi(){
+            this.woshi="";
+            this.keting="";
+            this.chufang="";
+        }
+        //包工头(只是个接口而已 不干活)
+        function Baogongtou(){
+            this.gaifangzi=function(gongren){
+                gongren.jian_woshi();
+                gongren.jian_keting();
+                gongren.jian_chufang();
+            }
+        }
+        //工人
+        function Gongren(){
+            this.jian_woshi=function(){
+                console.log("卧室盖完了");
+            }
+            this.jian_keting=function(){
+                console.log("客厅建造好了");
+            }
+            this.jian_chufang=function(){
+                console.log("厨房该好咯");
+            }
+            this.jiaogong=function(){
+                var _fangzi=new Fangzi();
+                _fangzi.woshi="###ok";
+                _fangzi.keting="---ok";
+                _fangzi.chufang="+++ok";
+                return _fangzi;
+            }
+        };
+
+        var gongren=new Gongren();
+        var baogongtou=new Baogongtou();
+        baogongtou.gaifangzi(gongren);
+        var myfangzi=gongren.jiaogong();
+        console.log(myfangzi);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
